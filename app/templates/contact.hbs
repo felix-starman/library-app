@@ -1,0 +1,4 @@
+<h1>Contact Page</h1>
+{{input type='email' value=emailAddress class='form-control' placeholder='Please type your email address' autofocus='autofocus'}}
+{{input type='message' value=message class='form-control' placeholder='Your message (atleast 5 characters)' rows='7'}}
+<button class='btn btn-primary btn-lg btn-block' disabled={{isDisabled}} {{action 'sendMessage'}}>Send Message</button>
