@@ -3,12 +3,13 @@
 LibrariesNewRoute = Ember.Route.extend(
 
   model: ->
-    @store.findAll('library')
+    @store.createRecord('library')
 
   actions:
 
     saveLibrary: (newLibrary) ->
-      `newLibrary.save().then(() => this.transitionTo('libraries'));`
+      newLibrary.save().then( =>
+        @transitionTo('libraries'))
 
     willTransition: ->
       model = @controller.get('model')

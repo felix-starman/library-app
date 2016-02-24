@@ -6,8 +6,8 @@ Router = Ember.Router.extend(
 )
 
 Router.map( ->
-  @route('about', path: '/about')
-  @route('contact', path: '/contact')
+  @route('about')
+  @route('contact')
 
   @route('admin', ->
     @route('invitations')
@@ -16,6 +16,7 @@ Router.map( ->
 
   @route('libraries', ->
     @route('new')
+    @route('edit', path: '/:library_id/edit')
   )
 )
 
