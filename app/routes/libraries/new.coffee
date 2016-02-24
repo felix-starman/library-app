@@ -2,17 +2,18 @@
 
 LibrariesNewRoute = Ember.Route.extend(
 
-  model: @store.findAll('library')
+  model: ->
+    @store.findAll('library')
 
   actions:
 
     saveLibrary: (newLibrary) ->
-      newLibrary.save().then( ->
-        @transitionTo('libraries')
-      )
+      `newLibrary.save().then(() => this.transitionTo('libraries'));`
 
-    willTranstition: ->
-      @controller.get('model').rollbackAttributes()
+    willTransition: ->
+      model = @controller.get('model')
+      if model.get('isNew')
+        model.destroyRecord()
 )
 
 `export default LibrariesNewRoute`

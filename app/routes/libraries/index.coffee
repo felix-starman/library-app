@@ -2,7 +2,8 @@
 
 LibrariesIndexRoute = Ember.Route.extend(
 
-  model: @store.findAll('library')
+  model: ->
+    @store.findAll('library')
 )
 
 `export default LibrariesIndexRoute`

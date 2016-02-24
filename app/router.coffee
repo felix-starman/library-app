@@ -11,6 +11,7 @@ Router.map( ->
 
   @route('admin', ->
     @route('invitations')
+    @route('contacts')
   )
 
   @route('libraries', ->
