@@ -8,6 +8,14 @@ Router = Ember.Router.extend(
 Router.map( ->
   @route('about', path: '/about')
   @route('contact', path: '/contact')
+
+  @route('admin', ->
+    @route('invitations')
+  )
+
+  @route('libraries', ->
+    @route('new')
+  )
 )
 
 `export default Router;`

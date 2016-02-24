@@ -3,6 +3,8 @@
 IndexController = Ember.Controller.extend(
   
   emailAddress: '',
+  responseMessage: '',
+  emailAddress: '',
 
   actualEmailAddress: Ember.computed('emailAddress', ->
     console.log('actualEmailAddress functions is called: ', this.get('emailAddress'))
@@ -13,9 +15,12 @@ IndexController = Ember.Controller.extend(
 
   actions:
     saveInvitation: ->
-      alert("Saving of the following email address is in progress: #{@get('emailAddress')}")
-      @set('responseMessage', "Thank you! We've just saved your email address: #{@get('emailAddress')}")
-      @set('emailAddress', '')
+      email = @get('emailAddress')
+      newInvitation = @store.createRecord('invitation', {email: email})
+      newInvitation.save().then((response)=>
+        @set('responseMessage', "Thank you! We've just saved your email address with the following id: #{response.get('id')}")
+        @set('emailAddress', '')
+      )
 
 )
 

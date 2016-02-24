@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'library-app',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    firebase: 'https://vivid-heat-8075.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
