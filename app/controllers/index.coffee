@@ -1,14 +1,10 @@
 `import Ember from 'ember'`
 
 IndexController = Ember.Controller.extend(
-  
+
   emailAddress: '',
   responseMessage: '',
   emailAddress: '',
-
-  actualEmailAddress: Ember.computed('emailAddress', ->
-    console.log('actualEmailAddress functions is called: ', this.get('emailAddress'))
-  )
 
   isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/)
   isDisabled: Ember.computed.not('isValid')
