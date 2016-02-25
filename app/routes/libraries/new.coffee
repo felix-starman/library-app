@@ -5,6 +5,14 @@ LibrariesNewRoute = Ember.Route.extend(
   model: ->
     @store.createRecord('library')
 
+  setupController: (controller,model) ->
+    @_super(controller,model)
+    controller.set('title', 'Create a new Library')
+    controller.set('buttonLabel', 'Create')
+
+  renderTemplate: ->
+    @render('libraries/form')
+
   actions:
 
     saveLibrary: (newLibrary) ->
